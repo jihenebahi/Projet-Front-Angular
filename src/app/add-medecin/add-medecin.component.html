@@ -1,0 +1,43 @@
+<div class="container"> 
+     <div> 
+       <h2>Ajouter un Medecin :</h2>              
+     </div> 
+        <form >  
+           
+            <div hidden class="col-sm-2 col-md-2 col-lg-2"> 
+                <label >ID  Medecin</label> 
+                <input   type="text"  [(ngModel)]="newMedecin.idMedecin"   name="idProduit" class="form-control"> 
+            </div> 
+           
+            <div class="col-sm-4 col-md-4 col-lg-4" > 
+                <label >Nom Medecin</label> 
+                <input  type="text"[(ngModel)]= "newMedecin.nomMedecin"   name="nomMedecin" class="form-control"> 
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2"> 
+                 <label >Tarif Consultaion</label> 
+                 <input type="number"   [(ngModel)]= "newMedecin.tarifConsultation"   name="tarifConsultation" class="form-control"> 
+            </div> 
+
+            <div class="col-sm-4 col-md-4 col-lg-4"> 
+                <label >Date Diplome</label> 
+                <input type="date"  [(ngModel)]= "newMedecin.dateDiplome"  name="dateDiplome" class="form-control"> 
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4"> 
+             <label>Specialite</label>
+             <select class="form-control form-control-lg" id="idSep" name="nomSep" [(ngModel)]="newIdSep">
+            @for(sep of specialites; track sep.idSep){
+            <option [value]="sep.idSep"> {{sep.nomSep}} </option>
+             }
+            </select>
+            </div>
+
+            <div class="mt-2"> 
+                <button type="submit" (click)="addMedecin()"class="btn btn-success">Ajouter</button> 
+                <!--<div>
+                    <h3>{{message}}</h3>
+                </div>-->
+            </div>    
+        </form> 
+    </div>   

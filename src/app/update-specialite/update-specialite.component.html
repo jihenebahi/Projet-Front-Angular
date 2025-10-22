@@ -1,0 +1,15 @@
+<form>
+    <div  [hidden]="ajout">
+        <label>ID Specialite</label>
+    <input type="text" [readonly]="!ajout" [(ngModel)]="specialite.idSep" name="idSpecialite" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom Specialite</label>
+        <input type="text" [(ngModel)]="specialite.nomSep" name="nomSpecialite" class="form-control"
+            placeholder="Entrez un nom de specialite...">
+    </div>
+    <div class="mt-2">
+        <button type="submit" [disabled]="!specialite.nomSep" class="btn btn-success"
+            (click)="saveSpecialite()">{{ajout ? 'Ajouter' : 'Modifier'}}</button>
+    </div>
+</form>

@@ -1,0 +1,54 @@
+<div class="container">
+<div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label>Specialites </label>
+    <select class="form-control form-control-lg" id="idSep" name="idSep" [(ngModel)]="IdSpecialite"(change)="onChange()">
+        @for(sep of specialites;track sep.idSep)
+        {
+        <option value="{{sep.idSep}}"> {{sep.nomSep}} </option>
+        }
+    </select>
+</div>
+
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+               
+                    <thead>                    
+                      <tr> <th>Id</th><th>Nom</th> <th>Tarif Consultation</th> <th>Date Diplome</th><th>Specialite</th> </tr>                      
+                </thead>
+
+                
+                
+
+                @for(medecin of medecins;track medecin.idMedecin)
+                {
+                    
+                   
+                    
+                    
+                    <tbody>
+                        <tr>
+                           
+                           <td>{{medecin.idMedecin}}</td>
+                           <td>{{medecin.nomMedecin}}</td>
+                           <td>{{medecin.tarifConsultation}}</td>
+                           <td>{{medecin.dateDiplome  | date:'dd/MM/yyyy'}}</td>
+                           <td>{{medecin.specialite?.nomSep}}</td> 
+                            <!--<td><a class="btn btn-success" [routerLink]="['/updateMedecin',medecin.idMedecin]">Modifier</a></td>
+                           <td><a class="btn btn-danger" (click)="supprimerMedecin(medecin)">Supprimer</a></td>-->
+                           
+                        </tr>
+                    </tbody>
+                    <!--@if(last){
+                        <h1>Nombre : {{nbr}}</h1>
+                }-->
+                }
+                <!--@empty {
+                    <h1>Aucun medecin trouvé !</h1>
+            }-->
+                
+            </table>
+        </div>
+    </div>
+

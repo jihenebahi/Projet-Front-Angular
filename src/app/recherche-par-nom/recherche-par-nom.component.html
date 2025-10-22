@@ -1,0 +1,62 @@
+<div class="container">
+<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Medecin</label>
+        <input type="text" class="form-control" [(ngModel)]="nomMedecin" name="nomMedecin" class="form-control">
+        <button type="submit" (click)="recherchermeds()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+    </div>
+</form>
+<!-- <form class="form-inline">      
+        <div class="form-group mx-sm-3 mb-2 mt-2 "> 
+            <label>Nom Medecin en tapant</label> 
+  <input class="form-control"  #searchTerm (keyup)="onKeyUp(searchTerm.value)"> 
+        </div> 
+    </form>-->
+    <!--<form class="form-inline">      
+<div class="form-group mx-sm-3 mb-2 mt-2 "> 
+<label>Nom Medecin en tapant</label> 
+<input #nom [(ngModel)]="searchTerm"  name="searchTerm" class="form-control" >  
+</div> 
+</form> -->
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+               
+                    <thead>                    
+                      <tr> <th>Id</th><th>Nom</th> <th>Tarif Consultation</th> <th>Date Diplome</th><th>Specialite</th> </tr>                      
+                </thead>
+
+                
+                
+                <!--@for (medecin of medecins  | searchFilter: searchTerm ; track medecin.idMedecin) -->
+                @for(medecin of medecins;track medecin.idMedecin)
+                {
+                    
+                   
+                    
+                    
+                    <tbody>
+                        <tr>
+                           
+                           <td>{{medecin.idMedecin}}</td>
+                           <td>{{medecin.nomMedecin}}</td>
+                           <td>{{medecin.tarifConsultation}}</td>
+                           <td>{{medecin.dateDiplome  | date:'dd/MM/yyyy'}}</td>
+                           <td>{{medecin.specialite?.nomSep}}</td> 
+                            <!--<td><a class="btn btn-success" [routerLink]="['/updateMedecin',medecin.idMedecin]">Modifier</a></td>
+                           <td><a class="btn btn-danger" (click)="supprimerMedecin(medecin)">Supprimer</a></td>-->
+                           
+                        </tr>
+                    </tbody>
+                    <!--@if(last){
+                        <h1>Nombre : {{nbr}}</h1>
+                }-->
+                }
+                <!--@empty {
+                    <h1>Aucun medecin trouvé !</h1>
+            }-->
+                
+            </table>
+        </div>
+    </div>

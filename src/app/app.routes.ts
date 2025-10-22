@@ -1,3 +1,18 @@
 import { Routes } from '@angular/router';
+import { MedecinsComponent } from './medecins/medecins.component';
+import { AddMedecinComponent } from './add-medecin/add-medecin.component';
+import { UpdateMedecinComponent } from './update-medecin/update-medecin.component';
+import { RechercheParSpecialiteComponent } from './recherche-par-specialite/recherche-par-specialite.component';
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+import { ListeSpecialitesComponent } from './liste-specialites/liste-specialites.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {path: "medecins", component : MedecinsComponent},
+    {path: "add-medecin", component : AddMedecinComponent},
+    {path: "updateMedecin/:id",  component: UpdateMedecinComponent},
+    {path: "rechercheParSpecialite", component : RechercheParSpecialiteComponent},
+     {path: "rechercheParNom", component : RechercheParNomComponent},
+     {path: "listeSpecialites", component : ListeSpecialitesComponent},   
+    {path: "", redirectTo: "medecins", pathMatch: "full"}   
+
+];

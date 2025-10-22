@@ -1,0 +1,43 @@
+<div class="container"> 
+     <div> 
+       <h2>Modifier un Medecin :</h2>              
+     </div> 
+        <form >  
+           
+            <div  class="col-sm-2 col-md-2 col-lg-2"> 
+                <label >ID  Medecin</label> 
+                <input  readonly type="text"  [(ngModel)]="currentMedecin.idMedecin"   name="idProduit" class="form-control"> 
+            </div> 
+           
+            <div class="col-sm-4 col-md-4 col-lg-4" > 
+                <label >Nom Medecin</label> 
+                <input  type="text"[(ngModel)]= "currentMedecin.nomMedecin"   name="nomMedecin" class="form-control"> 
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2"> 
+                 <label >Tarif Consultaion</label> 
+                 <input type="number"   [(ngModel)]= "currentMedecin.tarifConsultation"   name="tarifConsultation" class="form-control"> 
+            </div> 
+
+            <!--<div class="col-sm-4 col-md-4 col-lg-4"> 
+                <label >Date Diplome</label> 
+                <input type="date"  [(ngModel)]= "currentMedecin.dateDiplome"  name="dateDiplome" class="form-control"> 
+            </div>-->
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <label>Date Diplome</label>
+                <input type="date" [ngModel]="currentMedecin.dateDiplome | date: 'yyyy-MM-dd'"
+                    (ngModelChange)=" currentMedecin.dateDiplome= $event" name="dateDiplome" class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Specialite</label>
+            <select class="form-control form-control-lg" id="idSep" name="nomSep" [(ngModel)]="updatedSepId">
+                @for(sep of specialites; track sep.idSep)
+                {
+                <option [value]="sep.idSep"> {{sep.nomSep}} </option>
+                }
+            </select>
+            </div>
+            <div class="mt-2"> 
+                <button type="submit" (click)="updateMedecin()"class="btn btn-success">Modifier</button> 
+            </div>    
+        </form> 
