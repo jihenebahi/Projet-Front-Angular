@@ -24,8 +24,9 @@
                            <td>{{medecin.tarifConsultation}}</td>
                            <td>{{medecin.dateDiplome  | date:'dd/MM/yyyy'}}</td>
                            <td>{{medecin.specialite?.nomSep}}</td> 
+                           @if(authService.isAdmin()) { 
                             <td><a class="btn btn-success" [routerLink]="['/updateMedecin',medecin.idMedecin]">Modifier</a></td>
-                           <td><a class="btn btn-danger" (click)="supprimerMedecin(medecin)">Supprimer</a></td>
+                           <td><a class="btn btn-danger" (click)="supprimerMedecin(medecin)">Supprimer</a></td>}
                            
                         </tr>
                     </tbody>

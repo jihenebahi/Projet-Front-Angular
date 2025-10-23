@@ -15,7 +15,9 @@
             Medecins
           </a> 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+            @if(authService.isAdmin()) { 
             <li><a class="dropdown-item" routerLink="/add-medecin">Ajouter</a></li> 
+            }
             <li><a class="dropdown-item" href="#">Lister</a></li>
             <li> <a class="dropdown-item"  routerLink="/rechercheParSpecialite" >Recherche Par Specialite</a></li>
             <li><a class="dropdown-item"  routerLink="/rechercheParNom" >Recherche Par Nom</a></li>
@@ -27,11 +29,15 @@
       <ul class="navbar-nav ms-auto m-2" >       
         <li class="nav-item dropdown"> 
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 
-            [username] 
+            [{{authService.loggedUser}}]  
           </a> 
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> 
-            <li><a class="dropdown-item" href="#">Login</a></li> 
-            <li><a class="dropdown-item" href="#">Logout</a></li> 
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @if(!authService.isloggedIn){  
+            <li><a class="dropdown-item" routerLink="/login">Login</a></li> 
+            }
+            @else { 
+            <li><a class="dropdown-item" (click) = "onLogout()" href="#">Logout</a></li> 
+            }
             <li><a class="dropdown-item" href="#">Profile</a></li> 
           </ul> 
         </li> 

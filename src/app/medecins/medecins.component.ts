@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Medecin } from '../model/medecin.model';
 import { MedecinService } from '../services/medecin.service';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-medecins',
@@ -15,7 +16,7 @@ export class MedecinsComponent implements OnInit{
   //medecins : string[];
   medecins! : Medecin[];
 
-  constructor(private medecinService :MedecinService) { 
+  constructor(private medecinService :MedecinService,public authService: AuthService) { 
     //this.medecins=medecinService.listMedecin();
   }
   
